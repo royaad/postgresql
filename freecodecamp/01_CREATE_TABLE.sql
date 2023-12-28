@@ -7,11 +7,9 @@ CREATE TABLE IF NOT EXISTS person (
 	dob DATE NOT NULL,
 	email VARCHAR(100));
 -- You can check the psql datatypes @ https://www.postgresql.org/docs/current/datatype.html
--- Drop/delete a table
+-- Drop a table
 -- DROP TABLE person;
 -- Insert a new record
 INSERT INTO person (first_name, last_name, gender, dob)
 VALUES('John', 'Smith', 'Male', DATE '1789-7-14');
--- Show table
-SELECT * FROM person;
--- Fake tables can be created @ https://www.mockaroo.com/
+

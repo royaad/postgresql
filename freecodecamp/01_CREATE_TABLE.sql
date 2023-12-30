@@ -7,9 +7,17 @@ CREATE TABLE IF NOT EXISTS person (
 	dob DATE NOT NULL,
 	email VARCHAR(100));
 -- You can check the psql datatypes @ https://www.postgresql.org/docs/current/datatype.html
--- Drop a table
+-- Drop a table (Not recommended action)
 -- DROP TABLE person;
+-- DROP TABLE IF it EXISTS (Not recommended action)
+DROP TABLE IF EXISTS costumers;
+-- CREATE TABLE costumers with UNIQUE email and DEFAULT value
+CREATE TABLE costumers (id SERIAL NOT NULL PRIMARY KEY,
+						name VARCHAR NOT NULL,
+						email VARCHAR UNIQUE,
+						active BOOL NOT NULL DEFAULT TRUE);
 -- Insert a new record
-INSERT INTO person (first_name, last_name, gender, dob)
-VALUES('John', 'Smith', 'Male', DATE '1789-7-14');
-
+INSERT INTO costumers (name)
+VALUES('John Smith');
+-- Record will be inserted with email NULL and active TRUE
+SELECT * FROM costumers;

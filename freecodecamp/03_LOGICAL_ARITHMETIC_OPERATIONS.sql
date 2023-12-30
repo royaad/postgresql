@@ -58,3 +58,11 @@ SELECT COALESCE(email, 'NOT PROVIDED') FROM person LIMIT 50;
 -- COALESCE + NULLIF to handle ZERODIVISION
 SELECT COALESCE(10 / NULLIF(0,0)); -- returns NULL
 SELECT COALESCE(10 / NULLIF(2,0)); -- returns 5
+-- In the CLI run the command
+-- \i C:/Users/user/Desktop/MOOCs/PostgreSQL/data/car.sql
+-- Change file path accordingly
+-- Arithmetic operations can be applied directly in SELECT
+SELECT id, make, model, price::INT AS original_price,
+ROUND(price * 0.9, 0) AS discounted_price,
+ROUND(price * 0.1, 0) AS discount
+FROM car LIMIT 50;

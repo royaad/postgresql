@@ -7,9 +7,11 @@ SELECT * FROM person ORDER BY id DESC LIMIT 10;
 -- DELETE last record only
 DELETE FROM person WHERE id = 1003;
 -- The next query should be avoided as it deletes all the table records.
--- DELETE FROM person
+-- DELETE FROM person;
+-- Each time we insert a new record the `nextval('person_id_seq'::regclass)` function will run and increment `person_id_seq`
+SELECT * FROM person_id_seq;
 -- INSERT again
--- INSERT will be done with id 1004.
+-- INSERT will be done with id 1004. More specifically at `last_value` of `person_id_seq` table
 INSERT INTO person (first_name, last_name, email, gender, dob, country)
 VALUES ('Javier', 'Reichardt', null, 'Male', '1999-07-02', 'Ukraine');
 -- DELETE the new INSERT

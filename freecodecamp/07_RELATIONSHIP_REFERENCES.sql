@@ -24,3 +24,4 @@ WHERE car_id IS NULL;
 -- Returns all vehicles even those not owned by an employee
 SELECT * FROM employee
 RIGHT JOIN vehicle ON employee.car_id = vehicle.id;
+-- We cannot delete a reference from its original table if it is still referenced in another table.

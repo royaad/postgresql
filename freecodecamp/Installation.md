@@ -27,6 +27,7 @@ In the CLI, type:
 - `\l` to list databases.
 - `\d` to list tables, views, and sequences.
 - `\dt` to list tables and `\ds` to list sequences.
+- `\d TABLENAME` to describe table.
 - `\c {DBNAME}` to connect to new database.
 - `\x` to toggle expanded output.
 - `\i FILE` to execute commands from file.

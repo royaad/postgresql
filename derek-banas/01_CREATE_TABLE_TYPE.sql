@@ -81,8 +81,8 @@ id SERIAL PRIMARY KEY
 );
 /* DATATYPES
 Character Types:
-1. Char(5): Stores up to a max number of 5 characters
-2. Varchar: Store any length of characters
+1. Char(5): Stores up to a max number of 5 characters (Char values are padded with spaces to the specified length)
+2. Varchar: Store any length of characters (Varchar data type values are not padded with spaces)
 3. Varchar(20): Store up to 20 characters
 4. Text: Store any length of characters
 Numeric Types:

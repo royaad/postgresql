@@ -13,6 +13,8 @@ SELECT 1 <= 2;
 SELECT 1 = 2;
 -- Not equal to
 SELECT 1 <> 2;
+-- We can also use != for not equal
+SELECT 1 != 2;
 -- IS NULL
 SELECT NULL IS NULL;
 -- SELECT person's info WHERE email IS NULL

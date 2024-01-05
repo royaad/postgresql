@@ -68,9 +68,34 @@ $body$
 	WHERE customer.first_name = cus_fname AND customer.last_name = cus_lname;	
 $body$
 LANGUAGE SQL;
-
+-- Execute
 SELECT fn_get_number_orders_from_customer('Christopher', 'Jones');
-
-
-
-
+-- Return a Row / Composite for the Latest Order
+CREATE OR REPLACE FUNCTION fn_get_last_order() RETURNS sales_order AS
+$body$
+	SELECT *
+	FROM sales_order
+	ORDER BY time_order_taken DESC
+	LIMIT 1;
+$body$
+LANGUAGE SQL;
+-- Execute
+SELECT fn_get_last_order();
+--Get in table format
+SELECT (fn_get_last_order()).*;
+--Get just the date
+SELECT (fn_get_last_order()).time_order_taken;
+-- Get Multiple Rows All Employees in CA
+CREATE OR REPLACE FUNCTION fn_get_employees_location(loc varchar) 
+RETURNS SETOF sales_person AS
+$body$
+	SELECT *
+	FROM sales_person
+	WHERE state = loc;
+$body$
+LANGUAGE SQL;
+-- Execute
+SELECT (fn_get_employees_location('CA')).*;
+-- Get names and phone number using function results
+SELECT first_name, last_name, phone
+FROM fn_get_employees_location('CA');
